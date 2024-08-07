@@ -74,13 +74,6 @@ img{
   color: #2e2f42;
 }
 
-.container{
-  width: 1158px; 
-  margin: 0 auto;
-  padding: 0 15px;
-
-}
-
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -94,54 +87,58 @@ img{
   overflow: hidden;
   }
 
+  .container{
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
 /******************************** Header section *********************************/
-.header-inner{
-  display: flex;
-  align-items: center;
+
+.menu{
+  display:none;
 }
 
-.header-address{
-  font-style: normal;
+.menu-btn {
+  display: block;
+  padding: 16px 0;
+  margin: 0;
+  border: 0;
+  line-height: 0;
+  font-size: 0;
 }
 
-.header-address__item, .header-link{
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  color: #434455;
-}
-
-.header-link{
-  color: #2e2f42;
-  font-weight: 500;
-}
-
-.header-link:hover, .header-link:focus, .header-address__item:hover, .header-address__item:focus{
-  color: #404bbf;
-}
-
-.header-address__item{
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+.menu-btn svg {
+  display: block;
 }
 
 .nav{
   display: flex; 
   align-items: center;
   margin-right: auto;
+  justify-content: space-between;
 }
 
-.logo{
-  margin-right: 76px;
+.social-media-list--header{
+  display: none;
 }
 
-.menu{
-  display: flex;
-  gap: 40px;
+.header-address{
+  display: none;
 }
 
 .header-link{
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #2e2f42;
+  font-weight: 500;
   padding: 24px 0;
   display:block;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+.header-link:hover, .header-link:focus{
+  color: #404bbf;
 }
 
 .header-link--selected{
@@ -161,31 +158,115 @@ img{
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.address{
+.header-inner--nav-opened{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 72px 16px 40px;
+}
+
+.btn-close.btn-close--menu{
+  display: none;
+}
+
+.header-inner--nav-opened .btn-close.btn-close--menu{
+  display: flex;
+}
+
+.header-inner--nav-opened .logo{
+  display: none;
+}
+
+.header-inner--nav-opened .menu-btn{
+  display: none;
+}
+
+.header-inner--nav-opened .menu{
+  display: block;
+}
+
+.header-inner--nav-opened .social-media-list--header{
   display: flex;
   gap: 40px;
 }
+
+.social-media-list.social-media-list--header{
+  display: none;
+}
+
+.header-inner--nav-opened .header-address{
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.header-inner--nav-opened .header-link{
+  font-size: 36px;
+  line-height: 40px;
+  padding: 0 0 40px;
+}
+
+.header-inner--nav-opened .header-link--selected::after{
+  content:none;
+}
+
+.header-inner--nav-opened .address{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header-inner--nav-opened .header-address__item{
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  font-style: normal;
+}
+
+.header-inner--nav-opened .address>li:first-child .header-address__item{
+  color: #4D5AE5;
+}
+
+.header-inner--nav-opened .address>li:last-child .header-address__item{
+  color: #434455;
+}
+
+
 /**************************** End of the Header section ***************************/
+/******************************* Hero section (1) *********************************/
 
-
-/********************************** Hero section (1) **********************************/
 .hero-section{
   background-color: #2e2f42;
-  padding: 188px 0;
   background-image: linear-gradient(to bottom, rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url("../images/people-office.jpg");
   background-position: center; 
   background-repeat: no-repeat;
   background-size: cover;
-  max-width: 1440px;
   margin: 0 auto;
+  height: calc(100vh - 57px);
+}
+
+.hero-section>.container{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  gap:72px;
 }
 
 .hero-section__title{
-  max-width: 496px; 
-  font-size: 56px;
-  line-height: 1.07;
+  max-width: 216px; 
+  font-size: 36px;
+  line-height: 40px;
   text-align: center;
   letter-spacing: 0.02em;
+  font-weight: 700;
   color: #ffffff;
   margin-right: auto;
   margin-left: auto;
@@ -212,43 +293,39 @@ img{
 .hero-section__btn:hover, .hero-section__btn:focus{
   background-color: #404BBF;
 }
+
 /******************************* End of the Hero section (1) *******************************/
-
-
 /********************************** Advantages section (2) *********************************/
+
 .advantages{
-  padding: 120px 0;
+  padding: 96px 16px;
 }
 
 .advantages-list{
   display: flex;
-  gap: 24px;
+  gap: 72px;
+  flex-direction: column;
 }
 
 .advantages-icon{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 112px;
-  background-color: #f4f4fd;
-  border-radius: 4px; 
-  border: 1px solid #8e8f99;
-  margin-bottom: 8px;
+  display: none;
 }
 
 .advantages-list-item{
-  width: calc((100% - 24px * (4 - 1)) / 4);
+  width: 100%;
 }
 
 .advantages .title_md{
   margin-bottom: 8px;
+  text-align: center;
 }
-/**************************** End of the Advantages section (2) ****************************/
 
+/**************************** End of the Advantages section (2) ****************************/
 /*********************************** Our Team section (3) **********************************/
+
 .team{
   background-color: #F4F4FD;
-  padding: 120px 0
+  padding: 96px 0
 }
 
 .team .title_lg{
@@ -257,11 +334,13 @@ img{
 
 .team-list{
   display: flex;
-  gap: 24px;
+  gap: 72px;
+  flex-direction: column;
+  align-items:center;
 }
 
 .card-person{
-  width: calc((100% - 72px) / 4);
+  max-width: 264px;
   border-radius: 0px 0px 4px 4px; 
   background-color: #FFFFFF;
   box-shadow:0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
@@ -314,14 +393,12 @@ img{
   fill:#f4f4fd;
 }
 
-/**************************** End of the Our Team section (3) ****************************/
-
-
+/******************************** End of the Our Team section (3) **************************/
 /*********************************** Our Portfolio section (4) *****************************/
 
 .portfolio{
-  padding-top: 120px; 
-  padding-bottom: 120px;
+  padding-top: 96px; 
+  padding-bottom: 96px;
 }
 
 .portfolio .title_lg{
@@ -330,14 +407,14 @@ img{
 
 .portfolio-list{
   display: flex;
-  flex-wrap: wrap;
-  column-gap: 24px; 
-  row-gap: 48px; 
+  flex-direction: column;
+  align-items:center;
+  gap: 48px; 
 }
 
 .portfolio-list-item{
-  width: calc((100% - 48px) / 3);
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 288px;
 }
 
 .portfolio-list-item:hover{
@@ -356,6 +433,8 @@ img{
 
 .portfolio-image{
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+  max-width: 100%;
 }
 
 .portfolio-image-text{
@@ -384,12 +463,11 @@ img{
 }
 
 /**************************** End of the Portfolio section (4) *****************************/
+/***************************************** Footer ******************************************/
 
-
-/*************************************** Footer ***************************************/
 .footer{
   background-color:#2e2f42;
-  padding: 100px 0;
+  padding: 96px 0;
 }
 
 .footer .logo__black-part{
@@ -398,6 +476,7 @@ img{
 
 .footer .text-main{
   color: #F4F4FD; 
+  max-width: 288px;
 }
 
 .footer .logo{
@@ -405,18 +484,12 @@ img{
   margin-bottom: 16px;
 }
 
-.footer .text-main{
-  max-width: 264px;
-}
-
 .container--footer{
   display: flex; 
-  align-items: baseline;
-  justify-content: space-between;
-}
-
-.footer-wrap{
-  margin-right: 120px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap:72px;
 }
 
 .footer-social-media{
@@ -429,8 +502,7 @@ img{
 }
 
 .footer-social-media{
-  display: flex; 
-  gap: 16px;
+  text-align: center;
 }
 
 .footer-social-media-item{
@@ -438,7 +510,7 @@ img{
   height: 40px; 
 }
 
-.footer-social-media-list{
+.social-media-list{
   display: flex;
   gap: 16px;
 }
@@ -467,9 +539,15 @@ img{
   color: #ffffff;
 }
 
+.footer .form-text{
+  text-align: center;
+}
+
 .form-footer{
   display: flex;
-  gap: 24px;
+  flex-direction: column;
+  gap:16px;
+  align-items: center;
 }
 
 .footer-form-input{
@@ -491,7 +569,7 @@ img{
 }
 
 .footer-form-btn{
-  min-width: 165px; 
+  width: 165px; 
   height: 40px; 
   display: flex; 
   justify-content: center; 
@@ -514,7 +592,6 @@ img{
 }
 
 /********************************** End of the Footer *********************************/
-
 /**************************************** Modal **************************************/
 
 .modal-wrap{
@@ -525,6 +602,11 @@ img{
   height: 100%;
   background-color: rgba(46, 47, 66, 0.4);
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1); 
+  display: none;
+}
+
+.modal-wrap--opened{
+  display: block;
 }
 
 .modal{
@@ -532,8 +614,8 @@ img{
   top: 50%; 
   left: 50%;
   transform: translate(-50%, -50%); 
-  width: 408px; 
-  min-height: 584px;
+  min-width: 288px;
+  min-height: 623px;
   background: #fcfcfc;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2); 
   border-radius: 4px;
@@ -541,7 +623,7 @@ img{
   padding: 72px 24px 24px 24px; 
 }
 
-.modal-btn-close{
+.btn-close{
   position: absolute;
   top: 24px;
   right: 24px;
@@ -558,7 +640,7 @@ img{
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-btn-close:hover, .modal-btn-close:focus{
+.btn-close:hover, .btn-close:focus{
   background-color: #404bbf; 
   border: none;
 }
@@ -567,7 +649,7 @@ img{
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 }
 
-.modal-btn-close:hover .icon-close, .modal-btn-close:focus .icon-close{
+.btn-close:hover .icon-close, .btn-close:focus .icon-close{
   fill: #ffffff;
 }
 
@@ -715,3 +797,285 @@ img{
 }
 
 /********************************** End of the Modal *********************************/
+/************************************* Media area ************************************/
+
+@media(min-width:768px){
+
+/******************************** Header section *********************************/
+  .address{
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 400;
+    gap: 12px;
+  }
+
+  .header-inner{
+    display: flex;
+    align-items: center;
+  }
+
+  .menu{
+    display: flex;
+    gap: 40px;
+  }
+  
+  .menu-btn{
+    display: none;
+  }
+
+  .nav{
+    justify-content: normal;
+  }
+
+  .logo{
+    margin-right: 120px;
+  }
+
+  .header-address{
+    display: block;
+    font-style: normal;
+  }
+
+  .header-address__item{
+    letter-spacing: 0.02em;
+    color: #434455;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .header-address__item:hover, .header-address__item:focus{
+    color: #404bbf;
+  }
+
+/**************************** End of the Header section ***************************/
+/******************************* Hero section (1) *********************************/
+
+  .hero-section__title{
+    max-width: 496px; 
+    font-size: 56px;
+    line-height: 1.07;
+  }
+
+  .hero-section{
+    height: 436px;
+  }
+
+  .hero-section>.container{
+    justify-content: center;
+    gap:36px;
+  }
+  
+  /**************************** End of the Hero section (1) ****************************/
+  /******************************* Advantages section (2) ******************************/
+
+  .advantages-list{
+    row-gap: 72px;
+    column-gap: 24px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .advantages-list-item{
+    width: calc((100% - 24px) / 2);
+  }
+  
+  .advantages .title_md{
+    text-align: left;
+  }
+
+  /************************* End of the Advantages section (2) **************************/
+  /******************************** Our Team section (3) ********************************/
+
+  .team-list{
+    flex-direction: row;
+    column-gap: 24px;
+    row-gap: 64px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 600px;
+    margin: auto;
+  }
+
+  .card-person{
+    width: calc((100% - 48px) / 2);
+  }
+
+  /****************************** End of the Our Team section (3) ************************/
+  /********************************* Our Portfolio section (4) ***************************/
+
+  .portfolio-list{
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 24px; 
+    row-gap: 72px; 
+    justify-content: center;
+  }
+
+  /************************** End of the Portfolio section (4) ***************************/
+  /*************************************** Footer ****************************************/
+
+  .container--footer{
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    column-gap:24px;
+    row-gap: 72px;
+    max-width: 548px;
+    margin: auto;
+  }
+  
+  .footer .text-main{
+    color: #F4F4FD; 
+    max-width: 264px;
+  }
+
+  .footer-social-media{
+    text-align: left;
+  }
+
+  .form-footer{
+    gap: 24px;
+    flex-direction: row;
+    align-items:unset;
+  }
+    
+  .footer .form-text{
+    text-align: left;
+  }
+  
+  /********************************** End of the Footer *********************************/
+  /**************************************** Modal **************************************/
+
+  .modal{
+    max-width: 408px; 
+    min-height: 584px;
+  }
+
+  /********************************** End of the Modal *********************************/
+  /************************************* Media area ************************************/
+
+}
+
+@media(min-width:1158px){
+  
+  .container{
+    max-width: 1158px; 
+  }
+
+  /******************************** Header section *********************************/
+
+  .logo{
+    margin-right: 76px;
+  }
+
+  .address{
+    flex-direction: row;
+    gap: 40px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  /***************************** End of the Header section *****************************/
+  /********************************** Hero section (1) *********************************/
+
+  .hero-section{
+    max-width: 1440px;
+    height: 600px;
+  }
+
+  .hero-section>.container{
+    justify-content: center;
+    gap:48px;
+  }
+  
+  /**************************** End of the Hero section (1) ****************************/
+  /******************************* Advantages section (2) ******************************/
+
+  .advantages{
+    padding: 120px 0;
+  }  
+
+  .advantages-list{
+    gap: 24px;
+  }
+
+  .advantages-list-item{
+    width: calc((100% - 24px * (4 - 1)) / 4);
+  }
+  
+  .advantages-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 112px;
+    background-color: #f4f4fd;
+    border-radius: 4px; 
+    border: 1px solid #8e8f99;
+    margin-bottom: 8px;
+  }
+
+  /************************* End of the Advantages section (2) **************************/
+  /******************************** Our Team section (3) ********************************/
+
+  .team{
+    padding: 120px 0
+  }
+
+  .team-list{
+    display: flex;
+    gap: 24px;
+    max-width: unset;
+  }
+ 
+  .card-person{
+    width: calc((100% - 72px) / 4);
+  }
+
+  /****************************** End of the Our Team section (3) ************************/
+  /********************************* Our Portfolio section (4) ***************************/
+
+  .portfolio{
+    padding-top: 120px; 
+    padding-bottom: 120px;
+  }  
+
+  .portfolio-list-item{
+    width: calc((100% - 48px) / 3);
+  }
+
+  /************************** End of the Portfolio section (4) ***************************/
+  /*************************************** Footer ****************************************/
+
+  .footer{
+    padding: 100px 0;
+  }
+
+  .container--footer{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap:unset;
+  }
+
+  .footer-wrap{
+    margin-right: 120px;
+  }
+
+  /********************************** End of the Footer *********************************/
+  /**************************************** Modal **************************************/
+
+  /********************************** End of the Modal *********************************/
+  /************************************* Media area ************************************/
+
+}
+
+@media (min-resolution: 192dpi) {
+  .hero-section{
+    background-image: linear-gradient(to bottom, rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url("../images/people-office@2x.jpg");
+  }
+}
+
+
+/********************************* End of the Media *********************************/
